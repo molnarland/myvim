@@ -25,7 +25,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomasiser/vim-code-dark'
 Plugin 'vim-airline/vim-airline'
 Plugin 'pangloss/vim-javascript'
-
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'Valloric/YouCompleteMe'
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -55,4 +57,10 @@ set enc=utf-8
 set guifont=Powerline_Consolas:h11
 set renderoptions=type:directx,gamma:1.5,contrast:0.5,geom:1,renmode:5,taamode:1,level:0.5
 colorscheme codedark
+
+"for airline
 let g:airline_theme = 'codedark'
+
+"for nerdtree
+autocmd vimenter * NERDTree
+let NERDTreeShowHidden=1
