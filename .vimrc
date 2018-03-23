@@ -64,3 +64,10 @@ let g:airline_theme = 'codedark'
 "for nerdtree
 autocmd vimenter * NERDTree
 let NERDTreeShowHidden=1
+
+
+
+" HELPS
+" - switch between tab of NERD and file 
+"       -> normal mode: Ctrl+ww
+"       -> https://stackoverflow.com/questions/1656591/how-to-jump-back-to-nerdtree-from-file-in-tab#answer-4419041
