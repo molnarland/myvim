@@ -1,4 +1,5 @@
 *
 !.gitignore
+!package.json
 !.vimrc
-!.vim/
+!.vim/*.vim
