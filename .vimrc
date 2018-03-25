@@ -7,6 +7,12 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+"Ctrl-j deletes the line below the current line, if it is blank. 
+nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+"Ctrl-k deletes the line above the current line, if it is blank. 
+nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+
+
 "---------------- vundle --------------
 
 set nocompatible              " be iMproved, required
@@ -14,7 +20,14 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+
+
+try
+    call vundle#begin()
+catch
+    !~/.vim/install.sh
+    call vundle#begin()
+endtry
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
@@ -27,8 +40,13 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'maksimr/vim-jsbeautify'
+if has('python3')
+    Plugin 'Valloric/YouCompleteMe'
+endif
+Plugin 'digitaltoad/vim-pug'
+Plugin 'posva/vim-vue'
+Plugin 'jwalton512/vim-blade'
+
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -59,14 +77,19 @@ set guifont=Powerline_Consolas:h11
 set renderoptions=type:directx,gamma:1.5,contrast:0.5,geom:1,renmode:5,taamode:1,level:0.5
 colorscheme codedark
 
+"for pangloss/vim-javascript
+let g:javascript_plugin_jsdoc = 1
+
 "for airline
 let g:airline_theme = 'codedark'
+let g:javascript_plugin_flow = 1
 
 "for nerdtree
 autocmd vimenter * NERDTree
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden = 1
 
-
+"for vim-vue
+autocmd FileType vue syntax sync fromstart
 
 " HELPS
 " - switch between tab of NERD and file 
