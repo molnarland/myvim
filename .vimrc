@@ -46,7 +46,7 @@ endif
 Plugin 'digitaltoad/vim-pug'
 Plugin 'posva/vim-vue'
 Plugin 'jwalton512/vim-blade'
-
+Plugin 'flowtype/vim-flow'
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
