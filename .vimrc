@@ -92,6 +92,9 @@ let NERDTreeShowHidden = 1
 "for vim-vue
 autocmd FileType vue syntax sync fromstart
 
+"for fzf
+set rtp+=~/.fzf
+
 " HELPS
 " - switch between tab of NERD and file 
 "       -> normal mode: Ctrl+ww
