@@ -1,17 +1,26 @@
 set number
 
 syntax on
-"filetype plugin indent on
+" filetype plugin indent on
 
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set colorcolumn=120
 
-"Ctrl-j deletes the line below the current line, if it is blank. 
+" Ctrl-j deletes the line below the current line, if it is blank. 
 nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
-"Ctrl-k deletes the line above the current line, if it is blank. 
+" Ctrl-k deletes the line above the current line, if it is blank. 
 nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
-
+" Ctrl-j/k/l/h move cursor to another split
+nnoremap <C-j> <C-W><C-J>
+nnoremap <C-k> <C-W><C-K>
+nnoremap <C-l> <C-W><C-L>
+nnoremap <C-h> <C-W><C-H>
+" Tab navigation
+nnoremap <C-p> :tabprevious<CR>
+nnoremap <C-n> :tabnext<CR>
+nnoremap <C-t> :tabnew<CR>
 
 "---------------- vundle --------------
 
@@ -37,17 +46,23 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugins
 Plugin 'tomasiser/vim-code-dark'
 Plugin 'vim-airline/vim-airline'
-Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'airblade/vim-gitgutter'
 if has('python3')
     Plugin 'Valloric/YouCompleteMe'
 endif
 Plugin 'digitaltoad/vim-pug'
 Plugin 'posva/vim-vue'
 Plugin 'jwalton512/vim-blade'
-Plugin 'flowtype/vim-flow'
+"Plugin 'flowtype/vim-flow'
+Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'ianks/vim-tsx'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'wincent/ferret'
+Plugin 'mhinz/vim-startify'
+Plugin 'tpope/vim-commentary'
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -88,12 +103,29 @@ let g:javascript_plugin_flow = 1
 "for nerdtree
 autocmd vimenter * NERDTree
 let NERDTreeShowHidden = 1
+let NERDTreeIgnore=['\.swp']
 
 "for vim-vue
 autocmd FileType vue syntax sync fromstart
 
+" for vim-commentary
+nnoremap <C-í> gcc
+
 "for fzf
 set rtp+=~/.fzf
+
+" for tabulat
+let g:tabular_loaded = 1
+
+" for syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " HELPS
 " - switch between tab of NERD and file 
