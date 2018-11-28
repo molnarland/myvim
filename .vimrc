@@ -22,7 +22,7 @@ nnoremap <C-p> :tabprevious<CR>
 nnoremap <C-n> :tabnext<CR>
 nnoremap <C-t> :tabnew<CR>
 
-"---------------- vundle --------------
+" ---------------- vundle --------------
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -38,7 +38,7 @@ catch
     call vundle#begin()
 endtry
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
@@ -55,7 +55,7 @@ endif
 Plugin 'digitaltoad/vim-pug'
 Plugin 'posva/vim-vue'
 Plugin 'jwalton512/vim-blade'
-"Plugin 'flowtype/vim-flow'
+" Plugin 'flowtype/vim-flow'
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'ianks/vim-tsx'
@@ -64,28 +64,28 @@ Plugin 'wincent/ferret'
 Plugin 'mhinz/vim-startify'
 Plugin 'tpope/vim-commentary'
 
-"All of your Plugins must be added before the following line
+" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-"To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-"Brief help
-":PluginList       - lists configured plugins
-":PluginInstall    - installs plugins; append `!` to update or just
-" :PluginUpdate
-":PluginSearch foo - searches for foo; append `!` to refresh local cache
-":PluginClean      - confirms removal of unused plugins; append `!` to
-" auto-approve removal
-" "
-"see :h vundle for more details or wiki for FAQ
-"Put your non-Plugin stuff after this line
+" To ignore plugin indent changes, instead use:
+" filetype plugin on
 
-"---------------- vundle --------------
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just
+"  :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to
+"  auto-approve removal
 
-"----------- plugins are loaded -------
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
-"for codedark color
+" ---------------- vundle --------------
+
+" ----------- plugins are loaded -------
+
+" for codedark color
 set t_Co=256
 set t_ut=
 set enc=utf-8
@@ -93,29 +93,30 @@ set guifont=Powerline_Consolas:h11
 set renderoptions=type:directx,gamma:1.5,contrast:0.5,geom:1,renmode:5,taamode:1,level:0.5
 colorscheme codedark
 
-"for pangloss/vim-javascript
+" for pangloss/vim-javascript
 let g:javascript_plugin_jsdoc = 1
 
-"for airline
+" for airline
 let g:airline_theme = 'codedark'
 let g:javascript_plugin_flow = 1
 
-"for nerdtree
+" for nerdtree
 autocmd vimenter * NERDTree
 let NERDTreeShowHidden = 1
 let NERDTreeIgnore=['\.swp']
 
-"for vim-vue
+" for vim-vue
 autocmd FileType vue syntax sync fromstart
 
 " for vim-commentary
 nnoremap <C-í> gcc
 
-"for fzf
+" for fzf
 set rtp+=~/.fzf
+nmap :fzf :FZF
 
-" for tabulat
-let g:tabular_loaded = 1
+" for ferret
+nmap :ack :Ack
 
 " for syntastic
 set statusline+=%#warningmsg#
