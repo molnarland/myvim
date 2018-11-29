@@ -63,6 +63,8 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'wincent/ferret'
 Plugin 'mhinz/vim-startify'
 Plugin 'tpope/vim-commentary'
+Plugin 'google/vim-searchindex'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
