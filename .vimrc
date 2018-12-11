@@ -64,6 +64,7 @@ Plugin 'wincent/ferret'
 Plugin 'mhinz/vim-startify'
 Plugin 'tpope/vim-commentary'
 Plugin 'google/vim-searchindex'
+Plugin 'terryma/vim-multiple-cursors'
 
 
 " All of your Plugins must be added before the following line
@@ -119,6 +120,8 @@ nmap :fzf :FZF
 
 " for ferret
 nmap :ack :Ack
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " for syntastic
 set statusline+=%#warningmsg#
@@ -129,6 +132,19 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" for multiple-cursors
+let g:multi_cursor_use_default_mapping = 0
+
+let g:multi_cursor_start_word_key      = '<C-b>'
+let g:multi_cursor_select_all_word_key = '<A-b>'
+let g:multi_cursor_start_key           = 'g<C-b>'
+let g:multi_cursor_select_all_key      = 'g<A-b>'
+let g:multi_cursor_next_key            = '<C-b>'
+let g:multi_cursor_prev_key            = '<C-i>'
+let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
+
 
 " HELPS
 " - switch between tab of NERD and file 
