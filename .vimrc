@@ -65,6 +65,7 @@ Plugin 'mhinz/vim-startify'
 Plugin 'tpope/vim-commentary'
 Plugin 'google/vim-searchindex'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'gabrielelana/vim-markdown'
 
 
 " All of your Plugins must be added before the following line
