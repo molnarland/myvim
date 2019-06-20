@@ -1,4 +1,5 @@
 *
 !.gitignore
-!.vimrc
-!.vim/*.vim
+!_vimrc
+!vimfiles/*.vim
+!vimfiles/install.cmd

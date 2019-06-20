@@ -7,6 +7,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set colorcolumn=120
+set backspace=indent,eol,start
 
 " Ctrl-j deletes the line below the current line, if it is blank. 
 nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
@@ -28,14 +29,14 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=%HOME%/vimfiles/bundle/Vundle.vim/
 
 
 try
-    call vundle#begin()
+    call vundle#begin('%HOME%/vimfiles/bundle/')
 catch
-    !~/.vim/install.sh
-    call vundle#begin()
+    !./vimfiles/install.cmd
+    call vundle#begin('%HOME%/vimfiles/bundle/')
 endtry
 " alternatively, pass a path where Vundle should install plugins
 " call vundle#begin('~/some/path/here')
