@@ -28,14 +28,14 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-
+set rtp+=~/.config/nvim/bundle/Vundle.vim
+let bundleDir='~/.config/nvim/bundle'
 
 try
-    call vundle#begin()
+    call vundle#begin(bundleDir)
 catch
-    !~/.vim/install.sh
-    call vundle#begin()
+    !~/.config/nvim/install.sh
+    call vundle#begin(bundleDir)
 endtry
 " alternatively, pass a path where Vundle should install plugins
 " call vundle#begin('~/some/path/here')
@@ -44,8 +44,10 @@ endtry
 Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
-Plugin 'tomasiser/vim-code-dark'
+Plugin 'tomasr/molokai'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'luochen1990/rainbow'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'airblade/vim-gitgutter'
@@ -57,6 +59,7 @@ Plugin 'posva/vim-vue'
 Plugin 'jwalton512/vim-blade'
 " Plugin 'flowtype/vim-flow'
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'ianks/vim-tsx'
 Plugin 'vim-syntastic/syntastic'
@@ -95,14 +98,19 @@ set t_ut=
 set enc=utf-8
 " set guifont=Powerline_Consolas:h11
 " set renderoptions=type:directx,gamma:1.5,contrast:0.5,geom:1,renmode:5,taamode:1,level:0.5
-colorscheme codedark
+colorscheme molokai
+let g:molokai_original = 1
+let g:rehash256 = 1
 
 " for pangloss/vim-javascript
 let g:javascript_plugin_jsdoc = 1
 
 " for airline
-let g:airline_theme = 'codedark'
+let g:airline_theme = 'molokai'
 let g:javascript_plugin_flow = 1
+
+" for luochen1990/rainbow
+let g:rainbow_active = 1
 
 " for nerdtree
 autocmd vimenter * NERDTree
