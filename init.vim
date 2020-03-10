@@ -3,8 +3,8 @@ set number
 syntax on
 " filetype plugin indent on
 
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set colorcolumn=120
 
@@ -21,6 +21,9 @@ nnoremap <C-h> <C-W><C-H>
 nnoremap <C-p> :tabprevious<CR>
 nnoremap <C-n> :tabnext<CR>
 nnoremap <C-t> :tabnew<CR>
+" map :W and :Q
+nmap :W :w
+nmap :Q :q
 
 " ---------------- vundle --------------
 
@@ -44,10 +47,8 @@ endtry
 Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
-Plugin 'tomasr/molokai'
+Plugin 'tomasiser/vim-code-dark'
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'luochen1990/rainbow'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'airblade/vim-gitgutter'
@@ -62,13 +63,15 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'ianks/vim-tsx'
+Plugin 'jparise/vim-graphql'
+Plugin 'gabrielelana/vim-markdown'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'wincent/ferret'
 Plugin 'mhinz/vim-startify'
 Plugin 'tpope/vim-commentary'
+Plugin 'mileszs/ack.vim'
 Plugin 'google/vim-searchindex'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'gabrielelana/vim-markdown'
 
 
 " All of your Plugins must be added before the following line
@@ -92,30 +95,26 @@ filetype plugin indent on    " required
 
 " ----------- plugins are loaded -------
 
-" for codedark color
+" for codedark colour
 set t_Co=256
 set t_ut=
 set enc=utf-8
 " set guifont=Powerline_Consolas:h11
 " set renderoptions=type:directx,gamma:1.5,contrast:0.5,geom:1,renmode:5,taamode:1,level:0.5
-colorscheme molokai
-let g:molokai_original = 1
-let g:rehash256 = 1
+colorscheme codedark
 
 " for pangloss/vim-javascript
 let g:javascript_plugin_jsdoc = 1
 
 " for airline
-let g:airline_theme = 'molokai'
+let g:airline_theme = 'codedark'
 let g:javascript_plugin_flow = 1
-
-" for luochen1990/rainbow
-let g:rainbow_active = 1
 
 " for nerdtree
 autocmd vimenter * NERDTree
 let NERDTreeShowHidden = 1
 let NERDTreeIgnore=['\.swp']
+map :nerd<CR> :NERDTreeToggle<CR>
 
 " for vim-vue
 autocmd FileType vue syntax sync fromstart
